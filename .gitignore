@@ -3,6 +3,9 @@
 ################################################################################
 
 /.vs
+/WorkDays/.vs
+/WorkDays/obj/
+/WorkDays/bin/
 /WorkDays/.vs/WorkDays/v16/Server/sqlite3
 /WorkDays/obj/Debug/netcoreapp3.1
 /WorkDays/bin/Debug/netcoreapp3.1
