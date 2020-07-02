@@ -1,0 +1,60 @@
+﻿.team-purple {
+    display: block;
+    text-align: center;
+    width: 50vw;
+    height: 10vw;
+    /*min-height: 100px;
+    min-width: 30px;
+    border-width: medium;*/
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: rgba(163, 103, 182, 0.5);
+}
+.team-green {
+    display: block;
+    text-align: center;
+    
+    width: 50vw;
+    height: 10vw;
+    /*min-height: 100px;*/
+    /*min-width: 30px;*/
+    /*border-width: medium;*/
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: rgba(140, 200, 121, 0.5);
+}
+.team-blue {
+    display: block;
+    text-align: center;
+    width: 50vw;
+    height: 10vw;
+
+    /*height: 100px;
+    width: 50px;*/
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: rgba(122, 150, 208, 0.5);
+}
+
+.team-orange {
+    display: block;
+    text-align: center;
+    
+    width: 50vw;
+    height: 10vw;
+    /*min-height: 100px;
+    min-width: 50px;*/
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: rgba(229, 202, 97, 0.5);
+}
+
+.grayArea {
+    display: block;
+    width: 50vw;
+    height: 50vw;
+    border: 2px solid black;
+    /*border-width: medium;*/
+    border-radius: 15px;
+    background-color: rgba(25, 25, 25, 0.5);
+}

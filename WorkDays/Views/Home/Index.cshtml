@@ -1,6 +1,57 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
+﻿<head>
+    <link rel="stylesheet" href="~/css/HomePage.css" />
+</head>
+<div id="titleText" class="text-center">
+    <h1>Alege ziua si persoanele care vor veni la birou</h1>
 </div>
+
+<div id="NextWeekDetails" class="container">
+    <div class="row">
+        <div class="col-md-3">Saptamana curenta: 23</div> <!-- TODO: replace 23 with current data -->
+        <div class="col-md-3 offset-md-2">Datele Saptamanii: </div>
+        <div class="col-md-2" style="border-radius: 15px; border-color:black; border-width:medium;">12.03.2020</div>
+        <div class="col-md-2" style="border-radius: 15px; border-color:black; border-width:medium;">12.03.2020</div>
+    </div>
+</div>
+
+<div id="DaySelection" class="cotainer">
+    <div class="row">
+        <div class="col-md-3 offset-md-3 text-center">Luni & Marti</div>
+        <div class="col-md-3 text-center">Miercuri & Joi</div>
+    </div>
+</div>
+
+<div id="locationSelection" class="container">
+    <div id="roomLayout" style="border-width:medium;">
+        <div class="row">
+            <div id="livingRoom" class="col-md-4 grayArea" style="vertical-align:middle; text-align:center"><div>Livingroom</div></div>
+            <div id="desks" class="col-md-4">
+                <div id="teamUp" class="row col-md-12">
+                    <div class="row col-md-12">
+                        <div class="col-md-6 team-green">Bogdan</div> <!-- TODO: link name with model value (domain username) -->
+                        <div class="col-md-6 team-purple">Cristian</div> <!-- TODO: link name with model value (domain username) -->
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-6 team-purple">Vlad</div> <!-- TODO: link name with model value (domain username) -->
+                        <div class="col-md-6 team-orange">Marian</div> <!-- TODO: link name with model value (domain username) -->
+                    </div>
+                </div>
+                <div id="teamDown" class=" row col-md-12">
+                    <div class="row col-md-12">
+                        <div class="col-md-6 team-green">Andrei</div> <!-- TODO: link name with model value (domain username) -->
+                        <div class="col-md-6 team-blue">Lucian</div> <!-- TODO: link name with model value (domain username) -->
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-6 team-blue">Radu</div> <!-- TODO: link name with model value (domain username) -->
+                        <div class="col-md-6 team-green">Smaranda</div> <!-- TODO: link name with model value (domain username) -->
+                    </div>
+                </div>
+            </div>
+            <div id="hallway" class="col-md-4 grayArea" style="vertical-align:middle; text-align:center"><div>Hallway</div></div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
