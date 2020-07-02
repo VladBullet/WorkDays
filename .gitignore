@@ -1,31 +1,32 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
+﻿*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
 
-/.vs
-.vs/
-bin
-obj
-packages
-*.obj
+# Visual Studio Code
+.vscode
 
-[Bb]in/
-[Oo]bj/
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
 [Dd]ebug/
-
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
 x64/
 x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+msbuild.log
+msbuild.err
+msbuild.wrn
 
-project.lock.json
-project.fragment.lock.json
-artifacts/
-
-/WorkDays/.vs/
-/WorkDays/obj/
-/WorkDays/bin/
-/WorkDays/WorkDays/obj/
-/WorkDays/WorkDays/bin/
-/WorkDays/.vs/WorkDays/v16/Server/sqlite3
-/WorkDays/obj/Debug/netcoreapp3.1
-/WorkDays/bin/Debug/netcoreapp3.1
-/WorkDays/.vs/WorkDays/v16
+# Visual Studio 2015
+.vs/
