@@ -1,6 +1,6 @@
 using System;
 
-namespace WorkDays.Models
+namespace WorkDays.ViewModels
 {
     public class ErrorViewModel
     {

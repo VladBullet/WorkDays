@@ -1,61 +1,36 @@
-﻿<head>
+﻿@model WorkDays.ViewModels.HomeViewModel
+<head>
     <link rel="stylesheet" href="~/css/HomePage.css" />
 </head>
 <div id="titleText" class="text-center">
     <h1>Alege ziua si persoanele care vor veni la birou</h1>
 </div>
 
-<div id="NextWeekDetails" class="container">
-    <div class="row">
-        <div class="col-md-3">Saptamana curenta: 23</div> <!-- TODO: replace 23 with current data -->
-        <div class="col-md-3 offset-md-2">Datele Saptamanii: </div>
-        <div class="col-md-2" style="border-radius: 15px; border-color:black; border-width:medium;">12.03.2020</div>
-        <div class="col-md-2" style="border-radius: 15px; border-color:black; border-width:medium;">12.03.2020</div>
-    </div>
-</div>
-<br />
-
-<div id="DaySelection" class="cotainer">
-    <div class="row">
-        <div class="col-md-3 offset-md-2 text-center" style="background-color: rgba(42, 168, 223, 0.2); border:1px solid  rgba(42, 168, 223, 1); border-radius:5px;">Luni & Marti</div>
-        <div class="col-md-3 offset-md-2 text-center" style="background-color: rgba(42, 168, 223, 0.2); border:1px solid  rgba(42, 168, 223, 1); border-radius:5px;">Miercuri & Joi</div>
-    </div>
-</div>
-<br />
-<br />
-
-
-<div id="locationSelection" class="container">
-    <div id="roomLayout" style="border-width:medium;">
+<form>
+    <div id="weekDetails" class="container">
         <div class="row">
-            <div id="livingRoom" class="col-md-4 grayArea" style="vertical-align:middle; text-align:center"><div>Livingroom</div></div>
-            <div id="desks" class="col-md-4">
-                <div id="teamUp" class="row col-md-12">
-                    <div class="row col-md-12">
-                        <div class="col-md-6 team-green">Bogdan</div> <!-- TODO: link name with model value (domain username) -->
-                        <div class="col-md-6 team-purple">Cristian</div> <!-- TODO: link name with model value (domain username) -->
-                    </div>
-                    <div class="row col-md-12">
-                        <div class="col-md-6 team-purple">Vlad</div> <!-- TODO: link name with model value (domain username) -->
-                        <div class="col-md-6 team-orange">Marian</div> <!-- TODO: link name with model value (domain username) -->
-                    </div>
-                </div>
-                <div id="teamDown" class=" row col-md-12">
-                    <div class="row col-md-12">
-                        <div class="col-md-6 team-green">Andrei</div> <!-- TODO: link name with model value (domain username) -->
-                        <div class="col-md-6 team-blue">Lucian</div> <!-- TODO: link name with model value (domain username) -->
-                    </div>
-                    <div class="row col-md-12">
-                        <div class="col-md-6 team-blue">Radu</div> <!-- TODO: link name with model value (domain username) -->
-                        <div class="col-md-6 team-green">Smaranda</div> <!-- TODO: link name with model value (domain username) -->
-                    </div>
-                </div>
-            </div>
-            <div id="hallway" class="col-md-4 grayArea" style="vertical-align:middle; text-align:center"><div>Hallway</div></div>
+            @*TODO: Selectie saptamana + afisare *@
+            <div class="col-md-4">Saptamana xx</div> @*TODO: Add from model*@
+            <div class="col-md-4">Inceput saptamana: #saptamana.day1 </div>
+            <div class="col-md-4">Sfarsit saptamana: #saptamana.day5 </div>
         </div>
     </div>
-</div>
-<br />
-<br />
-<br />
-<br />
+    <div id="empSelectionMondayTuesday" class="container-fluid flex-container">
+        @foreach (var emp in Model.Employees)
+        {
+            <div class="flex-item">
+                <input type="checkbox" name="emp-checkboxes" value="@emp.Id" id="@emp.Id" />
+                <label class="customLabel" for="@emp.Id">@emp.FirstName @emp.LastName</label>
+            </div>
+        }
+    </div>
+    <div id="empSelectionWednesdayThursday" class="container-fluid flex-container" style="padding-top: 100px;">
+        @foreach (var emp in Model.Employees)
+        {
+            <div class="flex-item">
+                <input type="checkbox" name="emp-checkboxes" value="@emp.Id" id="@emp.Id" />
+                <label class="customLabel" for="@emp.Id">@emp.FirstName @emp.LastName</label>
+            </div>
+        }
+    </div>
+</form>

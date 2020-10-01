@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using WorkDays.Models;
+using WorkDays.ViewModels;
 using IdentityServer4.Services;
 
 namespace WorkDays.Controllers
@@ -24,7 +24,8 @@ namespace WorkDays.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            return View();
+            var model = new HomeViewModel();
+            return View(model);
         }
 
         public IActionResult Privacy()
