@@ -1,6 +1,6 @@
 ﻿.flex-container {
     display: flex;
-    max-width: 800px;
+    min-width: 700px;
 }
 
 .flex-item {
@@ -15,24 +15,27 @@
     text-align: center;
     width: auto;
     height: auto;
+    min-height: 60px;
     border-radius: 7px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px;
 }
 
 #empSelectionMondayTuesday input[type=checkbox] {
     display: none;
 }
 
-#empSelectionMondayTuesday input[type=checkbox]:checked + .customLabel {
-    background-color: lightblue;
-}
+    #empSelectionMondayTuesday input[type=checkbox]:checked + .customLabel {
+        background-color: lightblue;
+    }
+
 #empSelectionWednesdayThursday input[type=checkbox] {
     display: none;
 }
 
     #empSelectionWednesdayThursday input[type=checkbox]:checked + .customLabel {
-        background-color: lightblue;
+        background-color: lightsalmon;
     }
+
+#empSelectionWednesdayThursday .customLabel {
+    border-color: lightsalmon !important;
+}
