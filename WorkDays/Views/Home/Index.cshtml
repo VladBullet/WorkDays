@@ -6,34 +6,37 @@
     <h1>Alege ziua si persoanele care vor veni la birou</h1>
 </div>
 
-<form>
-    <div id="weekDetails" class="container-fluid" style="min-height: 300px">
-        <div class="row">
-            @*TODO: Selectie saptamana + afisare *@
-            <div class="col-md-4">Saptamana xx</div> @*TODO: Add from model*@
-            <div class="col-md-4">Inceput saptamana: #saptamana.day1 </div>
-            <div class="col-md-4">Sfarsit saptamana: #saptamana.day5 </div>
-        </div>
+<div id="weekDetails" class="container-fluid" style="min-height: 300px">
+    <div class="row">
+        @*TODO: Selectie saptamana + afisare *@
+        <div class="col-md-4">Saptamana xx</div> @*TODO: Add from model*@
+        <div class="col-md-4">Inceput saptamana: #saptamana.day1 </div>
+        <div class="col-md-4">Sfarsit saptamana: #saptamana.day5 </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2" style="border-color: lightsalmon; border-style: solid; padding-top: 10px;">Monday & Tuesday</div>
     </div>
     <div id="empSelectionMondayTuesday" class="flex-container" style="border-color: lightsalmon; border-style: solid; padding-top: 10px;">
         @foreach (var emp in Model.Employees)
         {
             <div class="flex-item">
                 <input type="checkbox" name="emp-checkboxes" value="@emp.Id" id="@(string.Format("empSelectionMondayTuesday{0}",emp.Id.ToString()))" />
-                <label class="customLabel" for="@(string.Format("empSelectionMondayTuesday{0}",emp.Id.ToString()))">@emp.FirstName @emp.LastName</label>
+                <label class="customLabel" for="@(string.Format("empSelectionMondayTuesday{0}",emp.Id.ToString()))" onselectstart="return false">@emp.FirstName @emp.LastName</label>
             </div>
         }
     </div>
-    <br/>
-    <br/>
-    <br/>
+    <br />
+    <br />
+    <br />
     <div id="empSelectionWednesdayThursday" class="flex-container" style="border-color: lightslategrey; border-style: solid; padding-top: 10px;">
         @foreach (var emp in Model.Employees)
         {
             <div class="flex-item">
                 <input type="checkbox" name="emp-checkboxes" value="@emp.Id" id="@(string.Format("empSelectionWednesdayThursday{0}",emp.Id.ToString()))" />
-                <label class="customLabel" for="@(string.Format("empSelectionWednesdayThursday{0}",emp.Id.ToString()))">@emp.FirstName @emp.LastName</label>
+                <label class="customLabel" for="@(string.Format("empSelectionWednesdayThursday{0}",emp.Id.ToString()))" onselectstart="return false">@emp.FirstName @emp.LastName</label>
             </div>
         }
     </div>
-</form>
+</div>

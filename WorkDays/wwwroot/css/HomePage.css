@@ -9,13 +9,14 @@
 }
 
 .customLabel {
+    white-space: nowrap;
+    margin: 1.00em 0;
     border-color: lightblue;
     border-style: solid;
     display: inline-block;
     text-align: center;
     width: auto;
     height: auto;
-    min-height: 60px;
     border-radius: 7px;
     padding: 5px;
 }
