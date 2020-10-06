@@ -13,6 +13,8 @@ using Microsoft.Extensions.Hosting;
 namespace WorkDays
 {
     using WorkDays.Services;
+    using WorkDays.Services.History;
+    using WorkDays.Services.Mail;
 
     public class Startup
     {
@@ -27,6 +29,9 @@ namespace WorkDays
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IEmployeeService,EmployeeService>();
+            services.AddScoped<IHistoryService,HistoryService>();
+            services.AddScoped<IMailService,MailService>();
+
             services.AddAuthentication(IISDefaults.AuthenticationScheme);
             services.AddControllersWithViews();
         }
