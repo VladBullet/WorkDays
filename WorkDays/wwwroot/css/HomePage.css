@@ -29,6 +29,14 @@
         background-color: lightblue;
     }
 
+#empSelectionMondayTuesday .customLabel {
+    border-color: lightblue !important;
+}
+
+    #empSelectionMondayTuesday .customLabel:hover {
+        background-color: #deeff5;
+    }
+
 #empSelectionWednesdayThursday input[type=checkbox] {
     display: none;
 }
@@ -40,3 +48,19 @@
 #empSelectionWednesdayThursday .customLabel {
     border-color: lightsalmon !important;
 }
+
+    #empSelectionWednesdayThursday .customLabel:hover {
+        background-color: #ffc6af;
+    }
+
+.btn-salmon {
+    color: #fff;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+    .btn-salmon:hover {
+        color: #212529;
+        background-color: #e2e6ea;
+        border-color: #dae0e5;
+    }
