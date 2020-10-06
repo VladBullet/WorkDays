@@ -9,7 +9,7 @@ namespace WorkDays.Services.Mail
 
     using WorkDays.Models;
 
-    public class MailService:IMailService
+    public class MailService : IMailService
     {
         private readonly string _from = "noreply@proplanet.nl";
         private readonly string _subject = "Programare venire la birou";
@@ -17,7 +17,7 @@ namespace WorkDays.Services.Mail
 
             ;
 
-        public bool SendMail(List<string> toEmails, DaysOfWeek selectedDays,string weekdateStart, string weekdateEnd)
+        public bool SendMail(List<string> toEmails, DaysOfWeek selectedDays, string weekdateStart, string weekdateEnd)
         {
             var msg = new MailMessage();
             MailAddress fromMail = new MailAddress(_from);
@@ -31,10 +31,11 @@ namespace WorkDays.Services.Mail
 
             msg.Body = string.Format(_body, string.Join(weekdateStart, " - ", weekdateEnd), selectedDays.ToString());
 
-            var smtp = new SmtpClient
-                           {
-                               DeliveryMethod = SmtpDeliveryMethod.Network
-                           };
+            var smtp = new SmtpClient("127.0.0.1")
+            {
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Port = 25
+            };
             smtp.Send(msg);
             return true;
         }
