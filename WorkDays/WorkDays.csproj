@@ -301,6 +301,8 @@
     <None Include="node_modules\popper.js\dist\umd\popper.min.js" />
     <None Include="node_modules\popper.js\dist\umd\popper.min.js.map" />
     <None Include="node_modules\popper.js\README.md" />
+    <None Include="wwwroot\Database\Employees.xlsx" />
+    <None Include="wwwroot\Database\History.xlsx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -319,6 +321,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\Database\" />
     <Folder Include="node_modules\popper.js\.tmp\" />
   </ItemGroup>
 

@@ -12,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 
 namespace WorkDays
 {
+    using WorkDays.Services;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -24,6 +26,7 @@ namespace WorkDays
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IEmployeeService,EmployeeService>();
             services.AddAuthentication(IISDefaults.AuthenticationScheme);
             services.AddControllersWithViews();
         }

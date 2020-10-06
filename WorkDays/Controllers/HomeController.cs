@@ -11,20 +11,25 @@ using IdentityServer4.Services;
 
 namespace WorkDays.Controllers
 {
+    using WorkDays.Services;
+
     //[SecurityHeaders]
     [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IEmployeeService _employeeService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,IEmployeeService employeeService)
         {
             _logger = logger;
+            _employeeService = employeeService;
         }
         [AllowAnonymous]
         public IActionResult Index()
         {
             var model = new HomeViewModel();
+            model.Employees = _employeeService.GetEmployees();
             return View(model);
         }
 

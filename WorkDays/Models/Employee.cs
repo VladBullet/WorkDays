@@ -7,6 +7,16 @@ namespace WorkDays.Models
 {
     public class Employee
     {
+        public Employee()
+        {
+            Id = 0;
+            Team = Team.Altele;
+        }
+        public Employee(int id)
+        {
+            Id = id;
+            Team = Team.Altele;
+        }
         public Employee(int id, string firstname, string lastname, Team team, string email)
         {
             Id = id;
@@ -21,13 +31,5 @@ namespace WorkDays.Models
         public string Email { get; set; }
 
         public Team Team { get; set; }
-    }
-
-    public enum Team
-    {
-        Saninet,
-        Ecom,
-        DataProcessor,
-        Grafica
     }
 }
