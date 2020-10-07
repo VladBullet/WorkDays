@@ -1,4 +1,5 @@
-﻿@model WorkDays.ViewModels.HomeViewModel
+﻿@using System.Globalization
+@model WorkDays.ViewModels.HomeViewModel
 <head>
     <link rel="stylesheet" href="~/css/HomePage.css" />
 </head>
@@ -8,10 +9,17 @@
 </div>
 <br />
 <br />
+@{
+    DateTimeFormatInfo dateTimeFormatInfo = DateTimeFormatInfo.CurrentInfo;
+    Calendar calendar = dateTimeFormatInfo.Calendar;
+    string week = string.Empty;
+}
+
 <div id="weekDetails" class="container-fluid" style="min-height: 100px">
     <div class="row">
-        @*TODO: Selectie saptamana + afisare *@
-        <div class="col-md-4">Saptamana xx</div> @*TODO: Add from model*@
+        <div class="col-md-4">
+            <input type="week" value="@week" class="form-control" id="Week" />
+        </div>
         <div class="col-md-4">Inceput saptamana: #saptamana.day1 </div>
         <div class="col-md-4">Sfarsit saptamana: #saptamana.day5 </div>
     </div>
@@ -26,3 +34,21 @@
 </div>
 
 <div style="margin-bottom: 100px;"></div>
+<script>
+    $(document).ready(function () {
+        // Add weekpicker
+        if (navigator.userAgent.indexOf("Firefox") != -1 || navigator.userAgent.indexOf("Trident") != -1) {
+            $('#Week').datepicker({
+                calendarWeeks: true,
+                weekStart: 1
+            });
+        };
+    });
+
+    $('#Week').on('changeDate', function (e) {
+        var value = $("#Week").val();
+        var year = moment().format('YYYY');
+        var week = moment(e.date).format('WW');
+        $("#Week").val(year + '-W' + week);
+    });
+</script>
