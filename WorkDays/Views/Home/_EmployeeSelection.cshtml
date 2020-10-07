@@ -1,0 +1,40 @@
+﻿@model HomeViewModel
+
+<head>
+    <link rel="stylesheet" href="~/css/HomePage.css" />
+</head>
+<div class="container container-fluid text-center" style="border-color: lightblue; border-style: solid; padding: 5px; border-radius: 7px;">
+    <div class="row">
+        <div class="col-md-4"><div style="font-style: oblique; font-size: 1.5em">Luni & Marti</div></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+    </div>
+    <div id="empSelectionMondayTuesday" class="row btn-group">
+        @foreach (var emp in Model.Employees)
+        {
+            <div class="" style="padding: 5px;">
+                <input type="checkbox" name="emp-checkboxes" value="@emp.Id" id="@(string.Format("empSelectionMondayTuesday{0}",emp.Id.ToString()))" />
+                <label class="customLabel" for="@(string.Format("empSelectionMondayTuesday{0}",emp.Id.ToString()))" onselectstart="return false">@emp.FirstName @emp.LastName</label>
+            </div>
+        }
+    </div>
+</div>
+<br />
+<br />
+<br />
+<div class="container container-fluid text-center" style="border-color: lightsalmon; border-style: solid; padding: 5px; border-radius: 7px;">
+    <div class="row">
+        <div class="col-md-4"><div style="font-style: oblique; font-size: 1.5em">Miercuri & Joi</div></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+    </div>
+    <div id="empSelectionWednesdayThursday" class="row btn-group">
+        @foreach (var emp in Model.Employees)
+        {
+            <div class="" style="padding: 5px;">
+                <input type="checkbox" name="emp-checkboxes" value="@emp.Id" id="@(string.Format("empSelectionWednesdayThursday{0}",emp.Id.ToString()))" />
+                <label class="customLabel" for="@(string.Format("empSelectionWednesdayThursday{0}",emp.Id.ToString()))" onselectstart="return false">@emp.FirstName @emp.LastName</label>
+            </div>
+        }
+    </div>
+</div>

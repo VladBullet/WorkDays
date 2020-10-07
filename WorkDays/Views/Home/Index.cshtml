@@ -2,13 +2,13 @@
 <head>
     <link rel="stylesheet" href="~/css/HomePage.css" />
 </head>
-
+<br />
 <div id="titleText" class="text-center">
     <h1>Alege ziua si persoanele care vor veni la birou</h1>
 </div>
 <br />
 <br />
-<div id="weekDetails" class="container-fluid" style="min-height: 300px">
+<div id="weekDetails" class="container-fluid" style="min-height: 100px">
     <div class="row">
         @*TODO: Selectie saptamana + afisare *@
         <div class="col-md-4">Saptamana xx</div> @*TODO: Add from model*@
@@ -17,32 +17,12 @@
     </div>
 </div>
 <div id="DaysSelection">
-    @Html.Partial("_DaysSelection", Model)
+    @Html.Partial("_EmployeeSelection", Model)
+</div>
+<br />
+<br />
+<div class="container-fluid text-center">
+    <div class="btn btn-outline-success">Trimite mail</div>
 </div>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2" style="border-color: lightsalmon; border-style: solid; padding-top: 10px;">Monday & Tuesday</div>
-    </div>
-    @*<div id="empSelectionMondayTuesday" class="flex-container" style="border-color: lightsalmon; border-style: solid; padding-top: 10px;">
-        @foreach (var emp in Model.Employees)
-        {
-            <div class="flex-item">
-                <input type="checkbox" name="emp-checkboxes" value="@emp.Id" id="@(string.Format("empSelectionMondayTuesday{0}",emp.Id.ToString()))" />
-                <label class="customLabel" for="@(string.Format("empSelectionMondayTuesday{0}",emp.Id.ToString()))" onselectstart="return false">@emp.FirstName @emp.LastName</label>
-            </div>
-        }
-    </div>*@
-    <br />
-    <br />
-    <br />
-    <div id="empSelectionWednesdayThursday" class="flex-container" style="border-color: lightslategrey; border-style: solid; padding-top: 10px;">
-        @foreach (var emp in Model.Employees)
-        {
-            <div class="flex-item">
-                <input type="checkbox" name="emp-checkboxes" value="@emp.Id" id="@(string.Format("empSelectionWednesdayThursday{0}",emp.Id.ToString()))" />
-                <label class="customLabel" for="@(string.Format("empSelectionWednesdayThursday{0}",emp.Id.ToString()))" onselectstart="return false">@emp.FirstName @emp.LastName</label>
-            </div>
-        }
-    </div>
-</div>
+<div style="margin-bottom: 100px;"></div>
