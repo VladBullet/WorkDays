@@ -34,21 +34,25 @@
 </div>
 
 <div style="margin-bottom: 100px;"></div>
-<script>
-    $(document).ready(function () {
-        // Add weekpicker
-        if (navigator.userAgent.indexOf("Firefox") != -1 || navigator.userAgent.indexOf("Trident") != -1) {
-            $('#Week').datepicker({
-                calendarWeeks: true,
-                weekStart: 1
-            });
-        };
-    });
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            // Add weekpicker
+            if (navigator.userAgent.indexOf("Firefox") != -1 || navigator.userAgent.indexOf("Trident") != -1) {
+                $('#Week').datepicker({
+                    calendarWeeks: true,
+                    weekStart: 1
+                });
+            };
+        });
 
-    $('#Week').on('changeDate', function (e) {
-        var value = $("#Week").val();
-        var year = moment().format('YYYY');
-        var week = moment(e.date).format('WW');
-        $("#Week").val(year + '-W' + week);
-    });
-</script>
+        $('#Week').on('changeDate', function (e) {
+            var value = $("#Week").val();
+            var year = moment().format('YYYY');
+            var week = moment(e.date).format('WW');
+            $("#Week").val(year + '-W' + week);
+        });
+
+    </script>
+}
