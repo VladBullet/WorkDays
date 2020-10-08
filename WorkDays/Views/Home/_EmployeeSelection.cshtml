@@ -12,9 +12,9 @@
     <div id="empSelectionMondayTuesday" class="row btn-group">
         @foreach (var emp in Model.Employees)
         {
-            <div class="" style="padding: 5px;">
-                <input type="checkbox" name="emp-checkboxes" value="@emp.Id" id="@(string.Format("empSelectionMondayTuesday{0}",emp.Id.ToString()))" />
-                <label class="customLabel" for="@(string.Format("empSelectionMondayTuesday{0}",emp.Id.ToString()))" onselectstart="return false">@emp.FirstName @emp.LastName</label>
+            <div style="padding: 5px;">
+                <input type="checkbox" name="emp-checkboxes" id="@(string.Format("empSelectionMondayTuesday{0}",emp.Id.ToString()))" />
+                <label class="customLabel" for="@(string.Format("empSelectionMondayTuesday{0}",emp.Id.ToString()))" data-IdForValue="@(string.Format("empSelectionMondayTuesday{0}",emp.Id.ToString()))" onselectstart="return false">@emp.FirstName @emp.LastName</label>
             </div>
         }
     </div>
@@ -31,10 +31,28 @@
     <div id="empSelectionWednesdayThursday" class="row btn-group">
         @foreach (var emp in Model.Employees)
         {
-            <div class="" style="padding: 5px;">
-                <input type="checkbox" name="emp-checkboxes" value="@emp.Id" id="@(string.Format("empSelectionWednesdayThursday{0}",emp.Id.ToString()))" />
-                <label class="customLabel" for="@(string.Format("empSelectionWednesdayThursday{0}",emp.Id.ToString()))" onselectstart="return false">@emp.FirstName @emp.LastName</label>
+            <div style="padding: 5px;">
+                <input type="checkbox" name="emp-checkboxes" id="@(string.Format("empSelectionWednesdayThursday{0}",emp.Id.ToString()))" />
+                <label class="customLabel" for="@(string.Format("empSelectionWednesdayThursday{0}",emp.Id.ToString()))" data-IdForValue="@(string.Format("empSelectionWednesdayThursday{0}",emp.Id.ToString()))" onselectstart="return false">@emp.FirstName @emp.LastName</label>
             </div>
         }
     </div>
 </div>
+
+@section Scripts
+{
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        $('#empSelectionMondayTuesday .customLabel').click( function () {
+            var checkedVal = string.concat( "#",$(this).data("IdForValue"));
+            alert(checkedVal);
+            $(checkedVal).is('checked') == true ? $(checkedVal).prop("checked", false) : $(checkedVal).prop("checked", true);
+        });
+        $('#empSelectionWednesdayThursday .customLabel').click( function () {
+            var checkedVal = string.concat( "#",$(this).data("IdForValue"));
+            alert(checkedVal);
+            $(checkedVal).is('checked') == true ? $(checkedVal).prop("checked", false) : $(checkedVal).prop("checked", true);
+        });
+    </script>
+
+}

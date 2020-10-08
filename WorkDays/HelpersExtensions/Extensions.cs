@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 
 namespace WorkDays.HelpersExtensions
 {
+    using System.Globalization;
+
     using WorkDays.Models;
 
     public static class Extensions
@@ -40,6 +42,21 @@ namespace WorkDays.HelpersExtensions
                 result.Add(int.Parse(item));
             }
             return result;
+        }
+
+        public static int GetIso8601WeekOfYear(this DateTime time)
+        {
+            // Seriously cheat.  If its Monday, Tuesday or Wednesday, then it'll 
+            // be the same week# as whatever Thursday, Friday or Saturday are,
+            // and we always get those right
+            DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(time);
+            if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
+            {
+                time = time.AddDays(3);
+            }
+
+            // Return the week of our adjusted day
+            return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
         }
     }
 }

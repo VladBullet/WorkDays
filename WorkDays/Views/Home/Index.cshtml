@@ -5,23 +5,17 @@
 </head>
 <br />
 <div id="titleText" class="text-center">
-    <h1>Alege ziua si persoanele care vor veni la birou</h1>
+    <h1>Alege saptamana si persoanele care vor veni la birou</h1>
 </div>
 <br />
 <br />
-@{
-    DateTimeFormatInfo dateTimeFormatInfo = DateTimeFormatInfo.CurrentInfo;
-    Calendar calendar = dateTimeFormatInfo.Calendar;
-    string week = string.Empty;
-}
 
 <div id="weekDetails" class="container-fluid" style="min-height: 100px">
     <div class="row">
-        <div class="col-md-4">
-            <input type="week" value="@week" class="form-control" id="Week" />
-        </div>
-        <div class="col-md-4">Inceput saptamana: #saptamana.day1 </div>
-        <div class="col-md-4">Sfarsit saptamana: #saptamana.day5 </div>
+
+        <div class="col-md-4">Inceput saptamana:<div id="weekStart"></div> </div>
+        <input type='text' id='weeklyDatePicker' class="form-control col-md-4" placeholder="Select Week" />
+        <div class="col-md-4">Sfarsit saptamana: <div id="weekEnd"></div> </div>
     </div>
 </div>
 <div id="DaysSelection">
@@ -30,29 +24,31 @@
 <br />
 <br />
 <div class="container-fluid text-center">
-    <div class="btn btn-outline-success">Trimite mail</div>
+    <div id="SendEmail" onclick="" class="btn btn-outline-success">Trimite mail</div>
 </div>
 
 <div style="margin-bottom: 100px;"></div>
 @section Scripts
 {
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
-            // Add weekpicker
-            if (navigator.userAgent.indexOf("Firefox") != -1 || navigator.userAgent.indexOf("Trident") != -1) {
-                $('#Week').datepicker({
-                    calendarWeeks: true,
-                    weekStart: 1
-                });
-            };
-        });
+            moment.locale('en', {
+                week: { dow: 1 } // Monday is the first day of the week
+            });
+            var mindate = moment().subtract(2, 'weeks').endOf('isoWeek');
+            //Initialize the datePicker
+            $("#weeklyDatePicker").datetimepicker({
+                format: 'MM-DD-YYYY',
+                minDate: mindate
+            });
 
-        $('#Week').on('changeDate', function (e) {
-            var value = $("#Week").val();
-            var year = moment().format('YYYY');
-            var week = moment(e.date).format('WW');
-            $("#Week").val(year + '-W' + week);
+            //Get the value of Start and End of Week
+            $('#weeklyDatePicker').on('dp.change', function (e) {
+                var value = $("#weeklyDatePicker").val();
+                var firstDate = moment(value, "MM-DD-YYYY").day(0).format("MM-DD-YYYY");
+                var lastDate = moment(value, "MM-DD-YYYY").day(6).format("MM-DD-YYYY");
+                $("#weeklyDatePicker").val(firstDate + " - " + lastDate);
+            });
         });
-
     </script>
 }

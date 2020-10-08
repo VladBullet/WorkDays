@@ -1,14 +1,4 @@
-﻿.flex-container {
-    display: flex;
-    min-width: 700px;
-}
-
-.flex-item {
-    -ms-flex-preferred-size: 100%;
-    flex-basis: 100%;
-}
-
-.customLabel {
+﻿.customLabel {
     white-space: nowrap;
     margin: 1.00em 0;
     border-color: lightblue;
@@ -53,18 +43,6 @@
         background-color: #ffc6af;
     }
 
-.btn-salmon {
-    color: #fff;
-    background-color: #fff;
-    border-color: #fff;
-}
-
-    .btn-salmon:hover {
-        color: #212529;
-        background-color: #e2e6ea;
-        border-color: #dae0e5;
-    }
-
 .big-container {
     border-style: solid;
     padding-left: 10px;
@@ -77,4 +55,8 @@
 /* Week picker */
 .datepicker-days > table > tbody > tr:hover {
     background-color: #808080;
+}
+
+.bootstrap-datetimepicker-widget .datepicker-days table tbody tr:hover {
+    background-color: #eee;
 }
